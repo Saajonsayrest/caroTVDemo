@@ -19,7 +19,7 @@ class _SearchButtonState extends State<SearchButton> {
       backgroundColor: AppColors.primary,
       icon: const Icon(Icons.search),
       onPressed: () {
-        context.goNamed(AppRoutes.signupScreen);
+        context.goNamed(AppRoutes.searchScreen);
       },
       label: const Text('Search'),
     );

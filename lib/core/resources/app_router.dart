@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 const String loginScreen = '/loginScreen';
 const String signupScreen = '/signupScreen';
 const String dashBoardScreen = '/dashBoardScreen';
-const String searchScreen = '/searchScreen';
+const String searchScreen = 'searchScreen';
 
 class AppRouter {
   GoRouter router = GoRouter(initialLocation: dashBoardScreen, routes: [
@@ -26,16 +26,17 @@ class AppRouter {
           const CupertinoPage(child: SignupScreen()),
     ),
     GoRoute(
-      name: AppRoutes.dashBoardScreen,
-      path: dashBoardScreen,
-      pageBuilder: (context, state) =>
-          const CupertinoPage(child: DashBoardScreen()),
-    ),
-    GoRoute(
-      name: AppRoutes.searchScreen,
-      path: searchScreen,
-      pageBuilder: (context, state) =>
-          const CupertinoPage(child: SearchScreen()),
-    ),
+        name: AppRoutes.dashBoardScreen,
+        path: dashBoardScreen,
+        pageBuilder: (context, state) =>
+            const CupertinoPage(child: DashBoardScreen()),
+        routes: [
+          GoRoute(
+            name: AppRoutes.searchScreen,
+            path: searchScreen,
+            pageBuilder: (context, state) =>
+                const CupertinoPage(child: SearchScreen()),
+          ),
+        ]),
   ]);
 }
